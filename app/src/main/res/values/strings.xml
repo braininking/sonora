@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Sonora</string>
+    <string name="tab_home">Início</string>
+    <string name="tab_songs">Músicas</string>
+    <string name="tab_folders">Pastas</string>
+    <string name="tab_albums">Álbuns</string>
+    <string name="tab_artists">Artistas</string>
+    <string name="tab_playlists">Playlists</string>
+    <string name="permission_title">Acesso às Músicas</string>
+    <string name="permission_rationale">O Sonora precisa de permissão de acesso ao armazenamento para localizar e reproduzir seus arquivos de áudio locais.</string>
+    <string name="grant_permission">Permitir Acesso</string>
+    <string name="search_hint">Buscar músicas, artistas, álbuns…</string>
+    <string name="unknown_artist">Artista desconhecido</string>
+    <string name="unknown_album">Álbum desconhecido</string>
+    <string name="no_songs_found">Nenhuma música encontrada</string>
+    <string name="favorites_title">Favoritos</string>
+    <string name="history_title">Histórico de Reprodução</string>
+    <string name="clear_history">Limpar Histórico</string>
+    <string name="queue_title">Fila de Reprodução</string>
+</resources>
