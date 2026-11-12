@@ -338,9 +338,13 @@ fun MainContent(viewModel: SonoraViewModel) {
                         )
                     }
                     NavigationTab.FOLDERS -> {
-                        val folderSongs = if (selectedFolder != null) {
-                            allSongs.filter { it.folderName == selectedFolder!!.name }
-                        } else emptyList()
+                        val folderSongs = remember(allSongs, selectedFolder?.path) {
+                            selectedFolder?.let { folder ->
+                                // Folder names are not unique; use the full path to avoid
+                                // mixing songs from different folders with the same name.
+                                allSongs.filter { it.folderPath == folder.path }
+                            }.orEmpty()
+                        }
 
                         FoldersScreen(
                             folders = folders,
