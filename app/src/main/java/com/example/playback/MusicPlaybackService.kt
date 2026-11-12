@@ -68,14 +68,11 @@ class MusicPlaybackService : MediaSessionService() {
     }
 
     override fun onDestroy() {
-        // The session and the service field reference the same ExoPlayer instance.
-        // Release it exactly once to avoid a second release during service teardown.
-        mediaSession?.run {
-            player.release()
-            release()
-        }
-        mediaSession = null
+        // Release the ExoPlayer instance once, then release the MediaSession.
+        player?.release()
         player = null
+        mediaSession?.release()
+        mediaSession = null
         super.onDestroy()
     }
 
