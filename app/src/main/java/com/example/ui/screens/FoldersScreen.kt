@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
@@ -59,6 +60,10 @@ fun FoldersScreen(
     onShuffleAllFolder: (List<Song>) -> Unit,
     onMenuSong: (Song) -> Unit
 ) {
+    // Keep the parent folder-list scroll position while the detail screen is shown.
+    // The LazyColumn leaves composition during drill-down, but this state holder stays alive.
+    val foldersListState = rememberLazyListState()
+
     if (selectedFolder != null) {
         // Folder Detail View
         FolderDetailView(
@@ -115,6 +120,7 @@ fun FoldersScreen(
                 }
             } else {
                 LazyColumn(
+                    state = foldersListState,
                     modifier = Modifier.weight(1f),
                     contentPadding = PaddingValues(horizontal = 12.dp, vertical = 4.dp)
                 ) {
